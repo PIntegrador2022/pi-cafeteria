@@ -4,30 +4,30 @@
     padding: 0;
 }
 
+body{
+  background-image: url(../img/backg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 .navbar{
     height: 100px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.20);
 }
 
+.titulo{
+  color: #f5f5f5;
+}
+
 .texto-menu{
     margin-top: 15px;
     text-align: center;
+    color: #f5f5f5;
 }
 
-.cards > .azul{
-    background: radial-gradient(#adf8ff, #E5F9FF);
-}
-
-.cards > .verde{
-    background: radial-gradient(#95fab6, #e5fae3);
-}
-
-.cards > .amarelo{
-    background: radial-gradient(#fffea6, #faf8de);
-}
-
-.cards > .roxo{
-    background: radial-gradient(#fdaff7, #fce7f7);
+.cards > .cor{
+  background: radial-gradient(#dad6d6, #0a0a0a);
 }
 
 .cards{
@@ -37,7 +37,7 @@
 }
 
 .card > h3{
-    color: #131212;
+  color: #f5f5f5;
 }
 
 .card{
@@ -70,7 +70,7 @@
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background: radial-gradient(#f4f6f6, #dbdddd);
+    background: radial-gradient(#d4d4d4, #030303);
     text-align: center;
     color: #000;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.20);

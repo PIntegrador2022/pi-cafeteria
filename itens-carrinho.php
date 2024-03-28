@@ -1,6 +1,6 @@
 <a class="text-dark" href="#popup1">
                 <big><big>
-                        <span class="bi bi-cart-fill"></span>
+                        <span class="bi bi-cart-fill" style="color: #f5f5f5;"></span>
                             <small><small><small><small>
                                 <span class="carrinho">
                                     <span class="position-absolute top-3 start-90 translate-middle badge rounded-pill bg-danger">
