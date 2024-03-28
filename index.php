@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <script defer src="js/bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="font-family:Oswald;">
 <div class="main-container">
         <nav class="navbar" style="background: radial-gradient(#d4d4d4, #030303);">
             <div class="container-fluid">
