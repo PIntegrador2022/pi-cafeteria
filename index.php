@@ -1,73 +1,444 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marchiatto Café</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <title>CAFÉ MARCHIATTO</title>
+
+    <!-- link via cdn da fonte awesome (icone) depois deixarei fixo via offline -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- arquivo de estilização css  -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/logo-univesp.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <script defer src="js/bootstrap/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
 </head>
-<body style="font-family:Oswald;">
-<div class="main-container">
-        <nav class="navbar" style="background: radial-gradient(#d4d4d4, #030303);">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="img/logo-univesp.png" alt="Logo" width="30" height="24"
-                        class="d-inline-block align-text-top">
-                        <span class="titulo">MARCHIATTO CAFÉ</span>
-                </a>
-                <?php
-                    require_once("itens-carrinho.php");
-                ?>
-            </div>
+
+<body>
+
+    <!-- inicio da sessão cabeçalho  -->
+
+    <header class="header">
+
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">sobre</a>
+            <a href="#menu">menu</a>
+            <a href="#products">produtos</a>
+            <a href="#review">depoimentos</a>
+            <a href="#contact">contato</a>
+            <a href="#blogs">blogs</a>
         </nav>
-        <div><h2 class="texto-menu">MENU</h2></div>
-        
-        <div class="cards row">
-            
-            <div class="card cor col-md-3 col-5">
-                <a href="itens.php" class="link">
-                    <h3 class="card-title"> <img src="img/cafe.png" width="'80" height="80" alt="">Café</h3>
-                </a>
-            </div>
-            <div class="card cor col-md-3 col-5">
-            <a href="" class="link">
-                <h3 class="card-title"> <img src="img/bolos.png" width="'80" height="80" alt="">Bólos</h3>
-                </a>
-            </div>
-            <div class="card cor col-md-3 col-5">
-            <a href="" class="link">
-                <h3 class="card-title"> <img src="img/paes.png" width="'90" height="90" alt="">Pães</h3>
-                </a>
-            </div>
-            <div class="card cor col-md-3 col-5">
-            <a href="" class="link">
-                <h3 class="card-title"> <img src="img/caputino.png" width="'90" height="90" alt="">Caputinos</h3>
-                </a>
-            </div>
-            <div class="card cor col-md-3 col-5">
-            <a href="" class="link">
-              <h3 class="card-title">Café</h3>
-              </a>
-            </div>
-            <div class="card cor col-md-3 col-5">
-            <a href="" class="link">
-                 <h3 class="card-title">Café</h3>
-                 </a>
+
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Digite para pesquisar...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+
+        <div class="cart-items-container">
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="images/cart-item-1.png" alt="">
+                <div class="content">
+                    <h3>item do carrinho 01</h3>
+                    <div class="price">R$ 4.99/-</div>
                 </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="images/cart-item-2.png" alt="">
+                <div class="content">
+                    <h3>item do carrinho 02</h3>
+                    <div class="price">R$ 8.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="images/cart-item-3.png" alt="">
+                <div class="content">
+                    <h3>item do carrinho 03</h3>
+                    <div class="price">R$ 5.99/-</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <span class="fas fa-times"></span>
+                <img src="images/cart-item-4.png" alt="">
+                <div class="content">
+                    <h3>item do carrinho 04</h3>
+                    <div class="price">R$ 10.99/-</div>
+                </div>
+            </div>
+            <a href="#" class="btn">finalizar pedido</a>
+        </div>
+
+    </header>
+
+    <!-- fim da sessão cabeçalho -->
+
+    <!-- inicio da sessão home  -->
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>machiatto café</h3>
+            <p>Bem vindo ao machiatto café, trazendo tradição em café. Obrigado pela preferência</p>
+            <a href="#" class="btn">Peça agora</a>
+        </div>
+
+    </section>
+
+    <!-- fim da sessão home -->
+
+    <!-- inicio da sessão sobre  -->
+
+    <section class="about" id="about">
+
+        <h1 class="heading"> <span>Sobre</span> nos </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="images/about-img.jpeg" alt="">
+            </div>
+
+            <div class="content">
+                <h3>O que torna nosso café especial?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora
+                    ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil
+                    voluptas culpa! Neque consectetur obcaecati sapiente?</p>
+                <a href="#" class="btn">Saiba mais</a>
+            </div>
 
         </div>
-    </div>
 
-    <?php
-        require_once("rodape.php");
-    ?>
-    
+    </section>
+
+    <!-- fim da sessão sobre -->
+
+    <!-- inicio da sessão menu  -->
+
+    <section class="menu" id="menu">
+
+        <h1 class="heading"> Nosso <span>Menu</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/menu-1.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 8.99 <span>14.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="images/menu-2.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 10.99 <span>15.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="images/menu-3.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 13.99 <span>19.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="images/menu-4.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 15.99 <span>20.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="images/menu-5.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 15.99 <span>20.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="images/menu-6.png" alt="">
+                <h3>Fresco e saboroso</h3>
+                <div class="price">R$ 15.99 <span>20.99</span></div>
+                <a href="#" class="btn">adicionar no carrinho</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- fim da sessão menu -->
+
+    <section class="products" id="products">
+
+        <h1 class="heading"> Nossos <span>produtos</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="images/product-1.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>Café</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">R$ 6.99 <span>R$ 14.99</span></div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="images/product-2.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>Café importado</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">R$ 15.99 <span>R$ 20.99</span></div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="images/product-3.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>Café tradicional</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">R$ 15.99 <span>R$ 20.99</span></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- inicio da sessão depoientos  -->
+
+    <section class="review" id="review">
+
+        <h1 class="heading"> depoimentos dos <span>clientes</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/quote-img.png" alt="" class="quote">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi
+                    nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus
+                    vel? Nemo.</p>
+                <img src="images/pic-1.png" class="user" alt="">
+                <h3>Rafael</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/quote-img.png" alt="" class="quote">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi
+                    nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus
+                    vel? Nemo.</p>
+                <img src="images/pic-2.png" class="user" alt="">
+                <h3>Lorena</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images/quote-img.png" alt="" class="quote">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi
+                    nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus
+                    vel? Nemo.</p>
+                <img src="images/pic-3.png" class="user" alt="">
+                <h3>Fabrício</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- fim da sessão depoimentos -->
+
+    <!-- inicio da sessão contato  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"> <span>contate-</span> nos </h1>
+
+        <div class="row">
+
+            <iframe class="map" src="/images/bull.png" allowfullscreen="" loading="lazy"></iframe>
+
+            <form action="">
+                <h3>Entrar em contato</h3>
+                <div class="inputBox">
+                    <span class="fas fa-user"></span>
+                    <input type="text" placeholder="nome">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-envelope"></span>
+                    <input type="email" placeholder="e-mail">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-phone"></span>
+                    <input type="number" placeholder="numero do telefone">
+                </div>
+                <input type="submit" value="contate agora" class="btn">
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- fim da sessão contato -->
+
+    <!-- inicio da sessão blogs  -->
+
+    <section class="blogs" id="blogs">
+
+        <h1 class="heading"> Nossos <span>blogs</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/blog-1.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">Café Saboroso E Refrescante</a>
+                    <span>Por Administrador / 21 De Maio De 2024</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                    <a href="#" class="btn">Saiba mais</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/blog-2.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">Café Saboroso E Refrescante</a>
+                    <span>Por Administrador / 21 De Maio De 2024</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                    <a href="#" class="btn">saiba mais</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/blog-3.jpeg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">Café Saboroso E Refrescante</a>
+                    <span>Por Administrador / 21 De Maio De 2024</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                    <a href="#" class="btn">saiba mais</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- fim da sessão blogs -->
+
+    <!-- inicio da sessão do footer -->
+
+    <section class="footer">
+
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <div class="links">
+            <a href="#">home</a>
+            <a href="#">sobre</a>
+            <a href="#">menu</a>
+            <a href="#">produto</a>
+            <a href="#">depoimentos</a>
+            <a href="#">contato</a>
+            <a href="#">blogs</a>
+        </div>
+
+        <div class="credit">criado por <span>estudantes da univesp</span> | trabalho de projeto integrador</div>
+
+    </section>
+
+    <!-- fim da sessão footer -->
+
+
+
+    <!-- link de arquivo js para personalização  -->
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
