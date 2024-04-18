@@ -92,8 +92,8 @@
     <section class="home" id="home">
 
         <div class="content">
-            <h3>machiatto café</h3>
-            <p>Bem vindo ao machiatto café, trazendo tradição em café. Obrigado pela preferência</p>
+            <h3>marchiatto café</h3>
+            <p>Bem vindo ao marchiatto café, trazendo tradição em café. Obrigado pela preferência</p>
             <a href="#" class="btn">Peça agora</a>
         </div>
 
