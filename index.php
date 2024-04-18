@@ -28,11 +28,11 @@
 
         <nav class="navbar">
             <a href="#home">home</a>
-            <a href="#about">sobre</a>
+            <a href="#sobre">sobre</a>
             <a href="#menu">menu</a>
-            <a href="#products">produtos</a>
-            <a href="#review">depoimentos</a>
-            <a href="#contact">contato</a>
+            <a href="#produtos">produtos</a>
+            <a href="#depoimentos">depoimentos</a>
+            <a href="#contato">contato</a>
             <a href="#blogs">blogs</a>
         </nav>
 
