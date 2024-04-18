@@ -331,7 +331,8 @@
 
         <div class="row">
 
-            <iframe class="map" src="/images/bull.png" allowfullscreen="" loading="lazy"></iframe>
+        <!-- adicionado a localização  -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2188.4022910630515!2d-46.770884880117244!3d-22.711908259793994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c92152bb74609d%3A0x65ed9e14c9c4bdd9!2sMARCHIATTO%20CAF%C3%89!5e0!3m2!1spt-BR!2sbr!4v1713478033849!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             <form action="">
                 <h3>Entrar em contato</h3>
