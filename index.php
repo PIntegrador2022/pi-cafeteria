@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
     <title>CAFÉ MARCHIATTO</title>
 
     <!-- link via cdn da fonte awesome (icone) depois deixarei fixo via offline -->
@@ -23,7 +23,7 @@
     <header class="header">
 
         <a href="#" class="logo">
-            <img src="images/logo.png" alt="">
+            <img src="images/logo.jpg" alt="">
         </a>
 
         <nav class="navbar">
@@ -34,6 +34,7 @@
             <a href="#depoimentos">depoimentos</a>
             <a href="#contato">contato</a>
             <a href="#blogs">blogs</a>
+            <a href="admin/admin.php" style="color: rgb(255, 240, 128);">ADMIN DASHBOARD</a>
         </nav>
 
         <div class="icons">
