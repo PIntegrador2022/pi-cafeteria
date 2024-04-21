@@ -204,6 +204,41 @@ section{
     text-align: center;
 }
 
+.header .cart-items-container .total{
+    border: 1px solid #13131a;
+    margin: auto;
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 2.5rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.header .cart-items-container .cart-item .content .price-total{
+    padding-top: 5px;
+    font-size: 2rem;
+    color: rgb(29, 4, 252);
+}
+
+.header .cart-items-container .nome-pedido{
+    margin-top: 15px;
+    font-size: 1.5rem;
+    border: 1px solid #13131a;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.header .cart-items-container .telefone-pedido{
+    font-size: 1.5rem;
+    border: 1px solid #13131a;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
 .home{
     height: 110vh;
     display: flex;
@@ -233,31 +268,31 @@ section{
 }
 
 /* ------------------------Sobre ============== */
-.about .row{
+.sobre .row{
     display: flex;
     align-items: center;
     background:var(--black);
     flex-wrap: wrap;
 }
 
-.about .row .image{
+.sobre .row .image{
     flex:1 1 45rem;
 }
 
-.about .row .image img{
+.sobre .row .image img{
     width: 100%;
 }
-.about .row .content{
+.sobre .row .content{
     flex:1 1 45rem;
     padding:2rem;
 }
 
-.about .row .content h3{
+.sobre .row .content h3{
     font-size: 3rem;
     color:#fff;
 }
 
-.about .row .content p{
+.sobre .row .content p{
     font-size: 1.6rem;
     color:#ccc;
     padding:1rem 0;
@@ -306,19 +341,19 @@ section{
     color:var(--black);
 }
 
-.products .box-container{
+.produtos .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
 }
 
-.products .box-container .box{
+.produtos .box-container .box{
     text-align: center;
     border:var(--border);
     padding: 2rem;
 }
 
-.products .box-container .box .icons a{
+.produtos .box-container .box .icons a{
     height: 5rem;
     width: 5rem;
     line-height: 5rem;
@@ -328,107 +363,107 @@ section{
     margin:.3rem;
 }
 
-.products .box-container .box .icons a:hover{
+.produtos .box-container .box .icons a:hover{
     background:var(--main-color);
 }
 
-.products .box-container .box .image{
+.produtos .box-container .box .image{
     padding: 2.5rem 0;
 }
 
-.products .box-container .box .image img{
+.produtos .box-container .box .image img{
     height: 25rem;
 }
 
-.products .box-container .box .content h3{
+.produtos .box-container .box .content h3{
     color:#fff;
     font-size: 2.5rem;
 }
 
-.products .box-container .box .content .stars{
+.produtos .box-container .box .content .stars{
     padding: 1.5rem;
 }
 
-.products .box-container .box .content .stars i{
+.produtos .box-container .box .content .stars i{
     font-size: 1.7rem;
     color: var(--main-color);
 }
 
-.products .box-container .box .content .price{
+.produtos .box-container .box .content .price{
     color:#fff;
     font-size: 2.5rem;
 }
 
-.products .box-container .box .content .price span{
+.produtos .box-container .box .content .price span{
     text-decoration: line-through;
     font-weight: lighter;
     font-size: 1.5rem;
 }
 
-.review .box-container{
+.depoimentos .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
 }
 
-.review .box-container .box{
+.depoimentos .box-container .box{
     border:var(--border);
     text-align: center;
     padding:3rem 2rem;
 }
 
-.review .box-container .box p{
+.depoimentos .box-container .box p{
     font-size: 1.5rem;
     line-height: 1.8;
     color:#ccc;
     padding:2rem 0;
 }
 
-.review .box-container .box .user{
+.depoimntos .box-container .box .user{
     height: 7rem;
     width: 7rem;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.review .box-container .box h3{
+.depoimentos .box-container .box h3{
     padding:1rem 0;
     font-size: 2rem;
     color:#fff;
 }
 
-.review .box-container .box .stars i{
+.depoimentos .box-container .box .stars i{
     font-size: 1.5rem;
     color:var(--main-color);
 }
 
-.contact .row{
+.contato .row{
     display: flex;
     background:var(--black);
     flex-wrap: wrap;
     gap:1rem;
 }
 
-.contact .row .map{
+.contato .row .map{
     flex:1 1 45rem;
     width: 100%;
     object-fit: cover;
     padding: 20px 40px;
 }
 
-.contact .row form{
+.contato .row form{
     flex:1 1 45rem;
     padding:5rem 2rem;
     text-align: center;
 }
 
-.contact .row form h3{
+.contato .row form h3{
     text-transform: uppercase;
     font-size: 3.5rem;
     color:#fff;
 }
 
-.contact .row form .inputBox{
+.contato .row form .inputBox{
     display: flex;
     align-items: center;
     margin-top: 2rem;
@@ -437,13 +472,13 @@ section{
     border:var(--border);
 }
 
-.contact .row form .inputBox span{
+.contato .row form .inputBox span{
     color:#fff;
     font-size: 2rem;
     padding-left: 2rem;
 }
 
-.contact .row form .inputBox input{
+.contato .row form .inputBox input{
     width: 100%;
     padding:2rem;
     font-size: 1.7rem;

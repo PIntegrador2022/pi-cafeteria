@@ -54,7 +54,7 @@
                 <img src="images/cart-item-1.png" alt="">
                 <div class="content">
                     <h3>item do carrinho 01</h3>
-                    <div class="price">R$ 4.99/-</div>
+                    <div class="price">R$ 4.99</div>
                 </div>
             </div>
             <div class="cart-item">
@@ -62,7 +62,7 @@
                 <img src="images/cart-item-2.png" alt="">
                 <div class="content">
                     <h3>item do carrinho 02</h3>
-                    <div class="price">R$ 8.99/-</div>
+                    <div class="price">R$ 8.99</div>
                 </div>
             </div>
             <div class="cart-item">
@@ -70,7 +70,7 @@
                 <img src="images/cart-item-3.png" alt="">
                 <div class="content">
                     <h3>item do carrinho 03</h3>
-                    <div class="price">R$ 5.99/-</div>
+                    <div class="price">R$ 5.99</div>
                 </div>
             </div>
             <div class="cart-item">
@@ -78,7 +78,21 @@
                 <img src="images/cart-item-4.png" alt="">
                 <div class="content">
                     <h3>item do carrinho 04</h3>
-                    <div class="price">R$ 10.99/-</div>
+                    <div class="price">R$ 10.99</div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="content total">
+                    <h3>Total do carrinho</h3>
+                    <div class="price-total"> R$ 10.99 </div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="content">
+                    <input class="nome-pedido" type="text" name="nome-pedido" placeholder="Seu nome" required>
+                    <input class="telefone-pedido" type="text" name="telefone-pedido" id="telefone" placeholder="Seu telefone" required>
                 </div>
             </div>
             <a href="#" class="btn">finalizar pedido</a>
@@ -104,7 +118,7 @@
 
     <!-- inicio da sessão sobre  -->
 
-    <section class="about" id="about">
+    <section class="sobre" id="sobre">
 
         <h1 class="heading"> <span>Sobre</span> nos </h1>
 
@@ -186,7 +200,7 @@
 
     <!-- fim da sessão menu -->
 
-    <section class="products" id="products">
+    <section class="produtos" id="produtos">
 
         <h1 class="heading"> Nossos <span>produtos</span> </h1>
 
@@ -264,7 +278,7 @@
 
     <!-- inicio da sessão depoientos  -->
 
-    <section class="review" id="review">
+    <section class="depoimentos" id="depoimentos">
 
         <h1 class="heading"> depoimentos dos <span>clientes</span> </h1>
 
@@ -326,7 +340,7 @@
 
     <!-- inicio da sessão contato  -->
 
-    <section class="contact" id="contact">
+    <section class="contato" id="contato">
 
         <h1 class="heading"> <span>contate-</span> nos </h1>
 
@@ -436,10 +450,12 @@
 
     <!-- fim da sessão footer -->
 
-
-
-    <!-- link de arquivo js para personalização  -->
+    <!-- links de arquivo js para personalização  -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/mascaras.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
     <script src="js/script.js"></script>
+ 
 
 </body>
 
