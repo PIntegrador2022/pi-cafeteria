@@ -27,7 +27,15 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
     </script>
 </div>
 
-<div>
+<div> <!-- FORM. P/ PESQUISAR CLIENTES -->
+    <form id="formPesquisa" method="post">
+        <input style= "margin-left:17px;" type="text" id="inputPesquisa" name="pesquisar" placeholder="Pesquisar cliente...">
+        <input type="submit" value="Pesquisar">
+    </form>
+</div>
+
+
+<div> <!--  CRIAÇÃO DA TABELA PRINCIPAL DE CLIENTES  -->
     
     <?php
     include("../php/connect.php");
@@ -38,7 +46,7 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
         $stmt = $pdo->query($sql);
 
         if ($stmt->rowCount() > 0) {//  CRIA A TABELA C/ CLIENTES DO BANCO DE DADOS
-            echo "<table class='table-clientes'><thead><tr> 
+            echo "<table id = 'tabelaClientes' class='table-clientes'><thead><tr> 
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Telefone</th>
@@ -87,6 +95,22 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
             </div>";
     }
 ?>
+
+<script>
+    document.getElementById("formPesquisa").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) { //atualizar a tabela principal de acordo c/ a pesquisa
+                document.getElementById("tabelaClientes").innerHTML = this.responseText;
+            }
+        };
+        xhr.open("POST", "../php/pesquisar_cliente.php", true);
+        xhr.send(formData);
+    });
+</script>
+
 
 <script>
     // Abre o modal (pop up)
