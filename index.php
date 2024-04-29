@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
-    <title>CAFÉ MARCHIATTO</title>
+    <title>Marchiatto Café</title>
 
     <!-- link via cdn da fonte awesome (icone) depois deixarei fixo via offline -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -27,13 +27,13 @@
         </a>
 
         <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#sobre">sobre</a>
-            <a href="#menu">menu</a>
-            <a href="#produtos">produtos</a>
-            <a href="#depoimentos">depoimentos</a>
-            <a href="#contato">contato</a>
-            <a href="#blogs">blogs</a>
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#menu">Menu</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#contato">Contato</a>
+            <a href="#blogs">Blogs</a>
             <a href="admin/admin.php" style="color: rgb(255, 240, 128);">ADMIN DASHBOARD</a>
         </nav>
 
@@ -107,8 +107,8 @@
     <section class="home" id="home">
 
         <div class="content">
-            <h3>marchiatto café</h3>
-            <p>Bem vindo ao marchiatto café, trazendo tradição em café. Obrigado pela preferência</p>
+            <h3>Marchiatto Café</h3>
+            <p>Bem vindo ao marchiatto café! A cada xícara, uma ideia.</p>
             <a href="#" class="btn">Peça agora</a>
         </div>
 
@@ -120,7 +120,7 @@
 
     <section class="sobre" id="sobre">
 
-        <h1 class="heading"> <span>Sobre</span> nos </h1>
+        <h1 class="heading"> <span>Sobre</span> nós </h1>
 
         <div class="row">
 

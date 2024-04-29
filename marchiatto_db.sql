@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/04/2024 às 00:11
+-- Tempo de geração: 29/04/2024 às 20:07
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `clientes` (
   `idCliente` int(11) NOT NULL,
   `nome` varchar(80) NOT NULL,
-  `telefone` int(20) DEFAULT NULL
+  `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -38,9 +38,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idCliente`, `nome`, `telefone`) VALUES
-(1, 'cliente um', 2147483647),
-(2, 'Cliente 2', 1923003201),
-(3, 'Cliente Número Três', 1390032013);
+(1, 'Cliente de teste um', '+55 11 993023084'),
+(2, 'Cliente número dois', '+55 21 232399203'),
+(3, 'Cliente de teste com nome longo', '+55 19 99939 4080');
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
