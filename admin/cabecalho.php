@@ -17,7 +17,13 @@
         <a class="nav-link active" aria-current="page" href="admin.php">INÍCIO</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="pedidos.php">PEDIDOS</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="clientes.php">CLIENTES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="cardapio.php">CARDÁPIO</a>
       </li>
       <li class="nav-item">
         <span style="color: #fffff; font-weight: bold;"><?php echo $nomeUser ?></span>

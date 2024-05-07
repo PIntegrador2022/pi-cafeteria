@@ -62,9 +62,9 @@
                 <td>
                     <form action='../php/deletar_cliente.php' method='post' style='display: inline-block;'>
                         <input type='hidden' name='idCliente' value='" . $row['idCliente'] . "'>
-                        <input style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
+                        <input class='botaoexcluir'style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
                     </form>
-                    <button onclick='openModal(\"myModal" . $row['idCliente'] . "\")'>Atualizar</button>
+                    <button class='botaoatualizar'onclick='openModal(\"myModal" . $row['idCliente'] . "\")'>Atualizar</button>
                 </td></tr>";
                     }
 
@@ -89,15 +89,32 @@
                     <form action='../php/atualizar_cliente.php' method='post'>
                         <input type='hidden' name='idCliente' value='" . $row['idCliente'] . "'>
                         <label for='novonome'>Novo Nome:</label>
-                        <input type='text' id='novonome' name='novoNome'><br><br>
+                        <input type='text' id='novonome' name='novoNome' value='" . $row['nome'] . "'><br><br>
                         <label for='novotelefone'>Novo Telefone:</label>
-                        <input type='text' id='novotelefone' name='novoTelefone'><br><br>
+                        <input type='text' id='novotelefone' name='novoTelefone' maxlength='15' oninput='formatarTelefone(this)' value='" . $row['telefone'] . "'><br><br>
                         <input type='submit' value='Atualizar'>
                     </form>
                 </div>
             </div>";
         }
         ?>
+
+<script> //--- Script simples p/ padronizar a entrada do telefone, pra evitar problemas na base de dados ---
+      
+      function formatarTelefone(input) {
+        // Remover todos os caracteres que não sejam números
+        var numero = input.value.replace(/\D/g, '');
+        
+        // Adicionar parênteses para o DDD se o número estiver incompleto
+        if (numero.length > 2 && numero.length <= 5) {
+          input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2);
+        } else if (numero.length > 5) {
+          // Adicionar parênteses e traço para o DDD e o número principal
+          input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2, 7) + '-' + numero.substring(7);
+        }
+      }
+
+    </script>
 
         <script>
             document.getElementById("formPesquisa").addEventListener("submit", function (event) {
