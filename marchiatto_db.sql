@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/05/2024 às 21:29
+-- Tempo de geração: 10/05/2024 às 00:54
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -38,11 +38,11 @@ CREATE TABLE `categoria` (
 
 INSERT INTO `categoria` (`id`, `nome`) VALUES
 (1, 'Bebidas Quentes'),
-(2, 'Bebidas Geladas'),
 (3, 'Iced'),
 (4, 'Frapp'),
 (5, 'Comidas'),
-(6, 'Sucos');
+(6, 'Sucos'),
+(7, 'Outros');
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,9 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id`, `cliente_id`, `produto_id`, `preco_produto`, `data_pedido`) VALUES
-(10, 4, 43, 8.00, '2024-05-07 19:28:19');
+(13, 1, 27, 15.00, '2024-05-09 22:52:26'),
+(14, 3, 49, 11.00, '2024-05-09 22:52:34'),
+(15, 4, 3, 8.00, '2024-05-09 22:53:02');
 
 -- --------------------------------------------------------
 
@@ -109,27 +111,27 @@ INSERT INTO `produtos` (`id`, `nome`, `descricao`, `categoria_id`, `preco`) VALU
 (1, 'Expresso Nível I', 'Café expresso normal', 1, 6.00),
 (2, 'Expresso Nível II', 'Café expresso forte', 1, 7.00),
 (3, 'Expresso Nível III', 'Café expresso extra forte', 1, 8.00),
-(6, 'Cappuccino Pequeno', 'Café com leite vaporizado e espuma de leite', 2, 9.00),
-(7, 'Cappuccino Médio', 'Café com leite vaporizado e espuma de leite', 2, 11.00),
-(8, 'Cappuccino Grande', 'Café com leite vaporizado e espuma de leite', 2, 13.00),
-(9, 'Mocha Preto Pequeno', 'Café com chocolate e leite vaporizado', 2, 11.00),
-(10, 'Mocha Preto Médio', 'Café com chocolate e leite vaporizado', 2, 13.00),
-(11, 'Mocha Preto Grande', 'Café com chocolate e leite vaporizado', 2, 17.00),
-(12, 'Mocha Branco Pequeno', 'Café com chocolate branco e leite vaporizado', 2, 11.00),
-(13, 'Mocha Branco Médio', 'Café com chocolate branco e leite vaporizado', 2, 13.00),
-(14, 'Mocha Branco Grande', 'Café com chocolate branco e leite vaporizado', 2, 17.00),
-(15, 'Vanilla Latte Pequeno', 'Café com baunilha e leite vaporizado', 2, 11.00),
-(16, 'Vanilla Latte Médio', 'Café com baunilha e leite vaporizado', 2, 13.00),
-(17, 'Vanilla Latte Grande', 'Café com baunilha e leite vaporizado', 2, 17.00),
-(18, 'Caramelo Macchiato Pequeno', 'Café com caramelo e leite vaporizado', 2, 11.00),
-(19, 'Caramelo Macchiato Médio', 'Café com caramelo e leite vaporizado', 2, 13.00),
-(20, 'Caramelo Macchiato Grande', 'Café com caramelo e leite vaporizado', 2, 17.00),
-(21, 'Doce de Leite Pequeno', 'Café com doce de leite e leite vaporizado', 2, 11.00),
-(22, 'Doce de Leite Médio', 'Café com doce de leite e leite vaporizado', 2, 13.00),
-(23, 'Doce de Leite Grande', 'Café com doce de leite e leite vaporizado', 2, 17.00),
-(24, 'Chai Latte Pequeno', 'Chá com especiarias e leite vaporizado', 2, 11.00),
-(25, 'Chai Latte Médio', 'Chá com especiarias e leite vaporizado', 2, 13.00),
-(26, 'Chai Latte Grande', 'Chá com especiarias e leite vaporizado', 2, 17.00),
+(6, 'Cappuccino Pequeno', 'Café com leite vaporizado e espuma de leite', 1, 9.00),
+(7, 'Cappuccino Médio', 'Café com leite vaporizado e espuma de leite', 1, 11.00),
+(8, 'Cappuccino Grande', 'Café com leite vaporizado e espuma de leite', 1, 13.00),
+(9, 'Mocha Preto Pequeno', 'Café com chocolate e leite vaporizado', 1, 11.00),
+(10, 'Mocha Preto Médio', 'Café com chocolate e leite vaporizado', 1, 13.00),
+(11, 'Mocha Preto Grande', 'Café com chocolate e leite vaporizado', 1, 17.00),
+(12, 'Mocha Branco Pequeno', 'Café com chocolate branco e leite vaporizado', 1, 11.00),
+(13, 'Mocha Branco Médio', 'Café com chocolate branco e leite vaporizado', 1, 13.00),
+(14, 'Mocha Branco Grande', 'Café com chocolate branco e leite vaporizado', 1, 17.00),
+(15, 'Vanilla Latte Pequeno', 'Café com baunilha e leite vaporizado', 1, 11.00),
+(16, 'Vanilla Latte Médio', 'Café com baunilha e leite vaporizado', 1, 13.00),
+(17, 'Vanilla Latte Grande', 'Café com baunilha e leite vaporizado', 1, 17.00),
+(18, 'Caramelo Macchiato Pequeno', 'Café com caramelo e leite vaporizado', 1, 11.00),
+(19, 'Caramelo Macchiato Médio', 'Café com caramelo e leite vaporizado', 1, 13.00),
+(20, 'Caramelo Macchiato Grande', 'Café com caramelo e leite vaporizado', 1, 17.00),
+(21, 'Doce de Leite Pequeno', 'Café com doce de leite e leite vaporizado', 1, 11.00),
+(22, 'Doce de Leite Médio', 'Café com doce de leite e leite vaporizado', 1, 13.00),
+(23, 'Doce de Leite Grande', 'Café com doce de leite e leite vaporizado', 1, 17.00),
+(24, 'Chai Latte Pequeno', 'Chá com especiarias e leite vaporizado', 1, 11.00),
+(25, 'Chai Latte Médio', 'Chá com especiarias e leite vaporizado', 1, 13.00),
+(26, 'Chai Latte Grande', 'Chá com especiarias e leite vaporizado', 1, 17.00),
 (27, 'Iced Mocha Preto', 'Café gelado com chocolate', 3, 15.00),
 (28, 'Iced Mocha Branco', 'Café gelado com chocolate branco', 3, 15.00),
 (29, 'Iced Vanilla Latte', 'Café gelado com baunilha', 3, 15.00),
@@ -161,7 +163,13 @@ INSERT INTO `produtos` (`id`, `nome`, `descricao`, `categoria_id`, `preco`) VALU
 (55, 'Suco de Maracujá', 'Suco de maracujá natural', 6, 11.00),
 (56, 'Suco de Morango', 'Suco de morango fresco', 6, 11.00),
 (57, 'Suco de Manga', 'Suco de manga natural', 6, 11.00),
-(58, 'Suco de Abacaxi', 'Suco de abacaxi natural', 6, 11.00);
+(58, 'Suco de Abacaxi', 'Suco de abacaxi natural', 6, 11.00),
+(59, 'Cafe Latte Pequeno', 'Feita com café expresso e leite vaporizado', 1, 9.00),
+(60, 'Cafe Latte Médio', 'Feita com café expresso e leite vaporizado', 1, 11.00),
+(61, 'Cafe Latte Grande', 'Feita com café expresso e leite vaporizado', 1, 13.00),
+(62, 'Água', 'Água mineral comum', 7, 4.00),
+(63, 'Água com gás', 'Água gaseificada', 7, 5.00),
+(64, 'Água tônica', 'Bebida carbonatada com sabor característico', 7, 8.00);
 
 -- --------------------------------------------------------
 
@@ -227,7 +235,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
@@ -239,13 +247,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

@@ -39,9 +39,9 @@ if (isset($_POST['pesquisar'])) {
                         <td>
                             <form action='../php/deletar_produto.php' method='post' style='display: inline-block;'>
                                 <input type='hidden' name='id_produto' value='" . $row['id_produto'] . "'>
-                                <input style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
+                                <input class='botaoexcluir'style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
                             </form>
-                            <button onclick='openModal(\"myModal" . $row['id_produto'] . "\")'>Atualizar</button>
+                            <button class='botaoatualizar'onclick='openModal(\"myModal" . $row['id_produto'] . "\")'>Atualizar</button>
                         </td>
                     </tr>";
             }

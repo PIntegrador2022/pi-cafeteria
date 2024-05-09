@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{
-    --main-color:#d3ad7f;
+    --main-color: #906b56;
     --black:#13131a;
     --bg:#010103;
     --border:.1rem solid rgba(255,255,255,.3);
@@ -62,7 +62,7 @@ section{
     display: inline-block;
     padding:.9rem 3rem;
     font-size: 1.7rem;
-    color:#fff;
+    color:#000000;
     background: var(--main-color);
     cursor: pointer;
 }
@@ -114,156 +114,48 @@ section{
     display: none;
 }
 
-.header .search-form{
-    position: absolute;
-    top:115%; right: 7%;
-    background: #fff;
-    width: 50rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    transform: scaleY(0);
-    transform-origin: top;
-}
-
-.header .search-form.active{
-    transform: scaleY(1);
-}
-
-.header .search-form input{
-    height: 100%;
-    width: 100%;
-    font-size: 1.6rem;
-    color:var(--black);
-    padding:1rem;
-    text-transform: none;
-}
-
-.header .search-form label{
-    cursor: pointer;
-    font-size: 2.2rem;
-    margin-right: 1.5rem;
-    color:var(--black);
-}
-
-.header .search-form label:hover{
-    color:var(--main-color);
-}
-
-.header .cart-items-container{
-    position: absolute;
-    top:100%; right: -100%;
-    height: calc(100vh - 9.5rem);
-    width: 35rem;
-    background: #fff;
-    padding:0 1.5rem;
-}
-
-.header .cart-items-container.active{
-    right: 0;
-}
-
-.header .cart-items-container .cart-item{
-    position: relative;
-    margin:2rem 0;
-    display: flex;
-    align-items: center;
-    gap:1.5rem;
-}
-
-.header .cart-items-container .cart-item .fa-times{
-    position: absolute;
-    top:1rem; right: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--black);
-}
-
-.header .cart-items-container .cart-item .fa-times:hover{
-    color:var(--main-color);
-}
-
-.header .cart-items-container .cart-item img{
-    height: 7rem;
-}
-
-.header .cart-items-container .cart-item .content h3{
-    font-size: 2rem;
-    color:var(--black);
-    padding-bottom: .5rem;
-}
-
-.header .cart-items-container .cart-item .content .price{
-    font-size: 1.5rem;
-    color:var(--main-color);
-}
-
-.header .cart-items-container .btn{
-    width: 100%;
-    text-align: center;
-}
-
-.header .cart-items-container .total{
-    border: 1px solid #13131a;
-    margin: auto;
-    margin-top: 15px;
-    padding: 12px;
-    font-size: 2.5rem;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.header .cart-items-container .cart-item .content .price-total{
-    padding-top: 5px;
-    font-size: 2rem;
-    color: rgb(29, 4, 252);
-}
-
-.header .cart-items-container .nome-pedido{
-    margin-top: 15px;
-    font-size: 1.5rem;
-    border: 1px solid #13131a;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px;
-}
-
-.header .cart-items-container .telefone-pedido{
-    font-size: 1.5rem;
-    border: 1px solid #13131a;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px;
-}
-
 .home{
-    height: 110vh;
+    height: 80vh;
+    text-align: left;
     display: flex;
     align-items: center;
-    background:url(../images/home-img.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    background:url(../images/foto-site.jpg) center right/auto no-repeat;
+    background-size: 600px;
+    background-position-y: -150px;
+    background-color: var(--black);
 }
 
 .home .content{
     max-width: 60rem;
+    margin-top: 60px;
 }
 
 .home .content h3{
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000, 4px 4px 0 #000000; 
     font-size: 6rem;
     text-transform: uppercase;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 1px;
+}
+
+.home .content h2{
+    font-size: 3rem;
     color:#fff;
+    text-shadow: 2px 2px 0 #000000, 4px 4px 0 #000000; 
+    font-size: 4rem;
     font-family:Helvetica;
+    letter-spacing: 1px;
 }
 
 .home .content p{
-    font-size: 1.7rem;
     font-weight: bold;
     line-height: 1.8;
-    padding:1rem 0;
-    color:rgb(255, 255, 255);
+    color:#fff;
+    text-shadow: 2px 2px 0 #000000, 4px 4px 0 #000000; 
+    font-size: 3rem;
+    font-family:Helvetica;
+    letter-spacing: 1px;
 }
 
 /* ------------------------Sobre ============== */
@@ -281,14 +173,16 @@ section{
 .sobre .row .image img{
     width: 100%;
 }
+
 .sobre .row .content{
-    flex:1 1 45rem;
+    flex:1 1 40rem;
     padding:2rem;
 }
 
 .sobre .row .content h3{
     font-size: 3rem;
     color:#fff;
+    
 }
 
 .sobre .row .content p{
@@ -311,7 +205,10 @@ section{
 }
 
 .menu .box-container .box img{
-    height: 10rem;
+    width:180px;
+    height:180px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .menu .box-container .box h3{
@@ -639,11 +536,6 @@ section{
         margin:1.5rem;
         padding:.5rem;
         font-size: 2rem;
-    }
-
-    .header .search-form{
-        width: 90%;
-        right: 2rem;
     }
 
     .home{
