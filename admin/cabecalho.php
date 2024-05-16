@@ -3,6 +3,8 @@
     <link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
 </head>
 <nav class="header">
+
+  <!-- cabeçalho do topo de toda página na sessão ADMIN -->
   
   <a href="#" class="logo">
     <img src="../images/logo.jpg" alt="Marchiatto Café Logo">
@@ -26,7 +28,7 @@
         <a class="nav-link" href="cardapio.php">CARDÁPIO</a>
       </li>
       <li class="nav-item">
-        <span style="color: #fffff; font-weight: bold;"><?php echo $nomeUser ?></span>
+        <a class="nav-item-user" href="gerenciar_admins.php"><span style="color: black; font-weight: bold;"><?php echo $nomeUser ?></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../php/logout.php" style="color: red;">Encerrar Sessão</a>

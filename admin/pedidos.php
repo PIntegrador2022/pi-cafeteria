@@ -11,9 +11,7 @@
 <body class="espaco_cabecalho">
 
     <?php
-    // Inclua o arquivo de verificação
     require '../php/verifica.php';
-    // Inclua o cabeçalho
     require_once 'cabecalho.php';
 
     if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
@@ -30,11 +28,11 @@
         <div>
             <!-- Criação da tabela de pedidos -->
             <?php
-            // Inclua o arquivo de conexão com o banco de dados
-            include("../php/connect.php");
+            // Inclui o arquivo de conexão com o banco de dados
+            include ("../php/connect.php");
 
             // Consulta SQL para obter os pedidos
-            $sql = "SELECT p.id, c.nome AS cliente, pr.nome AS produto, p.preco_produto, p.data_pedido
+            $sql = "SELECT p.id, c.nome AS cliente, pr.nome AS produto, p.preco_produto, DATE_FORMAT(p.data_pedido, '%d/%m/%Y %H:%i:%s') AS data_formatada, p.atendido
                     FROM pedidos p
                     INNER JOIN clientes c ON p.cliente_id = c.idCliente
                     INNER JOIN produtos pr ON p.produto_id = pr.id
@@ -45,41 +43,54 @@
 
                 if ($stmt->rowCount() > 0) {
                     echo "<table id='tabelaPedidos' class='table-clientes'>
-                            <thead>
-                                <tr> 
-                                    <th>ID</th>
-                                    <th>Cliente</th>
-                                    <th>Produto</th>
-                                    <th>Preço do Produto</th>
-                                    <th>Data do Pedido</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>";
+                <thead>
+                    <tr> 
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Produto</th>
+                        <th>Preço do Produto</th>
+                        <th>Data do Pedido</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>";
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<tr class='table-selecionada'>
-                                <td>" . $row['id'] . "</td>
-                                <td>" . $row['cliente'] . "</td>
-                                <td>" . $row['produto'] . "</td>
-                                <td>R$ " . number_format($row['preco_produto'], 2, ',', '.') . "</td>
-                                <td>" . $row['data_pedido'] . "</td>
-                                <td>
-                                    <form action='../php/deletar_pedido.php' method='post' style='display: inline-block;'>
-                                        <input type='hidden' name='id_pedido' value='" . $row['id'] . "'>
-                                        <input class='botaoexcluir' style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
-                                    </form>
-                                </td>
-                            </tr>";
+                        $classeAtendido = $row['atendido'] ? 'pedido-atendido' : 'pedido-nao-atendido';
+                        echo "<tr class='table-selecionada $classeAtendido'>
+                            <td>" . $row['id'] . "</td>
+                            <td>" . $row['cliente'] . "</td>
+                            <td>" . $row['produto'] . "</td>
+                            <td>R$ " . number_format($row['preco_produto'], 2, ',', '.') . "</td>
+                            <td>" . $row['data_formatada'] . "</td>
+                            <td>
+                                <form action='../php/atualizar_pedido.php' method='post' style='display: inline-block;'>
+                                    <input type='hidden' name='id_pedido' value='" . $row['id'] . "'>
+                                    <input type='hidden' name='atendido' value='" . $row['atendido'] . "'>
+                                    <button type='submit' style='margin: 5px;' class='check-btn " . ($row['atendido'] ? 'atendido' : 'nao-atendido') . "'>
+                                        " . ($row['atendido'] ? 'Pedido Atendido' : 'Pedido Não Atendido') . "
+                                    </button>
+                                </form>
+                                <form action='../php/deletar_pedido.php' method='post' style='display: inline-block;'>
+                                    <input type='hidden' name='id_pedido' value='" . $row['id'] . "'>
+                                    <button type='submit' class='botaoexcluir' style='width: 50px; margin: 5px;'>
+                                        Excluir
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>";
                     }
 
                     echo "</table>";
                 } else {
                     echo "<p class='table-clientes'>Nenhum pedido encontrado.</p>";
+                    $resetSql = "ALTER TABLE pedidos AUTO_INCREMENT = 1";
+                    $pdo->query($resetSql);
                 }
             } catch (PDOException $e) {
                 echo "Erro: " . $e->getMessage();
             }
             ?>
+
         </div>
 
     <?php else:

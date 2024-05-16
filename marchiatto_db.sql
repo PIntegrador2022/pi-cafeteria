@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/05/2024 às 00:54
+-- Tempo de geração: 16/05/2024 às 20:17
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -56,16 +56,6 @@ CREATE TABLE `clientes` (
   `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `clientes`
---
-
-INSERT INTO `clientes` (`idCliente`, `nome`, `telefone`) VALUES
-(1, 'Cliente número um', '(19) 99939-4080'),
-(2, 'Cliente número dois', '(21) 29239-2102'),
-(3, 'Cliente teste 3', '(19) 40028-9222'),
-(4, 'Cliente de TESTE', '(19) 99939-4080');
-
 -- --------------------------------------------------------
 
 --
@@ -77,17 +67,9 @@ CREATE TABLE `pedidos` (
   `cliente_id` int(11) DEFAULT NULL,
   `produto_id` int(11) DEFAULT NULL,
   `preco_produto` decimal(10,2) DEFAULT NULL,
-  `data_pedido` timestamp NOT NULL DEFAULT current_timestamp()
+  `data_pedido` timestamp NOT NULL DEFAULT current_timestamp(),
+  `atendido` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `cliente_id`, `produto_id`, `preco_produto`, `data_pedido`) VALUES
-(13, 1, 27, 15.00, '2024-05-09 22:52:26'),
-(14, 3, 49, 11.00, '2024-05-09 22:52:34'),
-(15, 4, 3, 8.00, '2024-05-09 22:53:02');
 
 -- --------------------------------------------------------
 
@@ -188,7 +170,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nome`, `senha`) VALUES
-(1, 'adminteste', '202cb962ac59075b964b07152d234b70');
+(1, 'marchiatto', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Índices para tabelas despejadas
@@ -241,25 +223,25 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para tabelas despejadas

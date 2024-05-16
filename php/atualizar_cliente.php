@@ -5,7 +5,7 @@
     $novonome = $_POST["novoNome"];
     $novotelefone = $_POST["novoTelefone"];
 
-    try {   //é a mesma ideia do cadastro, com comandos SQL diferentes
+    try {   //é a mesma ideia do cadastro
         $sql = "UPDATE clientes SET nome = :novonome, telefone = :novotelefone WHERE idCliente = :codigo";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':novonome', $novonome);

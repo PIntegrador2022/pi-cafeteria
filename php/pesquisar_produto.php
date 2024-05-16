@@ -1,14 +1,11 @@
 <?php
-// Inclua o arquivo de conexão com o banco de dados
 include("../php/connect.php");
 
-// Verifique se o parâmetro de pesquisa foi enviado
 if (isset($_POST['pesquisar'])) {
-    // Limpe e normalize o termo de pesquisa
+    // Limpe e normaliza o termo de pesquisa
     $searchTerm = trim($_POST['pesquisar']);
     $searchTerm = htmlspecialchars($searchTerm, ENT_QUOTES, 'UTF-8');
 
-    // Consulta SQL para buscar produtos correspondentes ao termo de pesquisa
     $sql = "SELECT p.id AS id_produto, p.nome AS produto, p.preco AS preco, c.id AS categoria_id, c.nome AS categoria
             FROM produtos p
             INNER JOIN categoria c ON p.categoria_id = c.id
@@ -52,7 +49,6 @@ if (isset($_POST['pesquisar'])) {
         echo "Erro: " . $e->getMessage();
     }
 } else {
-    // Se nenhum termo de pesquisa foi fornecido, retorne uma mensagem de erro
     echo "<tr><td colspan='4'>Por favor, forneça um termo de pesquisa válido.</td></tr>";
 }
 ?>

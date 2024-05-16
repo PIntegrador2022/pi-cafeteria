@@ -80,6 +80,8 @@
                     echo "</table>";
                 } else {
                     echo "<p class='table-cardapio'>Nenhum produto encontrado.</p>";
+                    $resetSql = "ALTER TABLE produtos AUTO_INCREMENT = 1";
+                    $pdo->query($resetSql);
                 }
             } catch (PDOException $e) {
                 echo "Erro: " . $e->getMessage();
@@ -108,7 +110,7 @@
                 <label for='nova_categoria'>Nova Categoria:</label>
                 <select id='nova_categoria' name='nova_categoria'>";
 
-            // Loop p/ exibir todas as categorias como opções de um dropdown menu, deve ter um jeito mais prático
+            // Loop p/ exibir todas as categorias como opções de um dropdown menu
             while ($categoria = $stmt_categorias->fetch(PDO::FETCH_ASSOC)) {
                 echo "<option value='" . $categoria['id'] . "'" . ($row['categoria_id'] == $categoria['id'] ? " selected" : "") . ">" . $categoria['nome'] . "</option>";
             }
@@ -141,7 +143,7 @@
                         document.getElementById("tabelaCardapio").innerHTML = this.responseText;
                     }
                 };
-                xhr.send("pesquisar=" + searchTerm);
+                xhr.send("pesquisar=" + searchTerm); //query de consulta
             });
         </script>
 

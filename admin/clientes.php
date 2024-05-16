@@ -23,7 +23,9 @@
                     document.write("<label style='color: rgb(32, 230, 104); font-weight: bold;'>Cliente excluído!</label>");
                 <?php elseif (isset($_GET['sucesso']) && $_GET['sucesso'] == 2): ?>
                     document.write("<label style='color: rgb(32, 230, 104); font-weight: bold;'>Cliente atualizado!</label>");
-                <?php elseif (isset($_GET['sucesso']) && $_GET['sucesso'] == 0): ?>
+                    <?php elseif (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+                    document.write("<label style='color: rgb(223, 0, 0); font-weight: bold;'>Não foi possível excluir o cliente pois ele possui pedidos ativos.</label>");
+                    <?php elseif (isset($_GET['sucesso']) && $_GET['sucesso'] == 0): ?>
                     document.write("<label style='color: rgb(223, 0, 0); font-weight: bold;'>Ocorreu um erro!</label>");
                 <?php endif; ?>
             </script>
@@ -43,7 +45,9 @@
             <?php
             include ("../php/connect.php");
 
-            $sql = "SELECT idCliente, nome, telefone FROM clientes";
+            $sql = "SELECT idCliente, nome, telefone FROM clientes 
+            ORDER BY nome ASC";
+            
 
             try {
                 $stmt = $pdo->query($sql);
@@ -65,12 +69,15 @@
                         <input class='botaoexcluir'style='width: 50px; margin: 5px;' type='submit' value='Excluir'>
                     </form>
                     <button class='botaoatualizar'onclick='openModal(\"myModal" . $row['idCliente'] . "\")'>Atualizar</button>
-                </td></tr>";
+                    <button class='botaopedidos' onclick='openPedidosModal(\"" . $row['nome'] . "\")'>Pedidos</button>
+                    </td></tr>";
                     }
 
                     echo "</table>";
                 } else {
                     echo "<p class='table-clientes'>Nenhum resultado.</p>";
+                    $resetSql = "ALTER TABLE clientes AUTO_INCREMENT = 1";
+                    $pdo->query($resetSql);
                 }
             } catch (PDOException $e) {
                 echo "Erro: " . $e->getMessage();
@@ -93,28 +100,28 @@
                         <label for='novotelefone'>Novo Telefone:</label>
                         <input type='text' id='novotelefone' name='novoTelefone' maxlength='15' oninput='formatarTelefone(this)' value='" . $row['telefone'] . "'><br><br>
                         <input type='submit' value='Atualizar'>
-                    </form>
+                        </form>
                 </div>
             </div>";
         }
         ?>
 
-<script> //--- Script simples p/ padronizar a entrada do telefone, pra evitar problemas na base de dados ---
-      
-      function formatarTelefone(input) {
-        // Remover todos os caracteres que não sejam números
-        var numero = input.value.replace(/\D/g, '');
-        
-        // Adicionar parênteses para o DDD se o número estiver incompleto
-        if (numero.length > 2 && numero.length <= 5) {
-          input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2);
-        } else if (numero.length > 5) {
-          // Adicionar parênteses e traço para o DDD e o número principal
-          input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2, 7) + '-' + numero.substring(7);
-        }
-      }
+        <script> //--- Script simples p/ padronizar a entrada do telefone, pra evitar problemas na base de dados ---
 
-    </script>
+            function formatarTelefone(input) {
+                // Remover todos os caracteres que não sejam números
+                var numero = input.value.replace(/\D/g, '');
+
+                // Adicionar parênteses para o DDD se o número estiver incompleto
+                if (numero.length > 2 && numero.length <= 5) {
+                    input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2);
+                } else if (numero.length > 5) {
+                    // Adicionar parênteses e traço para o DDD e o número principal
+                    input.value = '(' + numero.substring(0, 2) + ') ' + numero.substring(2, 7) + '-' + numero.substring(7);
+                }
+            }
+
+        </script>
 
         <script>
             document.getElementById("formPesquisa").addEventListener("submit", function (event) {
@@ -133,21 +140,81 @@
 
 
         <script>
-            // Abre o modal (pop up)
+            // Abre o modal
             function openModal(modalId) {
                 var modal = document.getElementById(modalId);
                 modal.style.display = "block";
+                // P/ fechar o modal ao clicar fora dele
+                window.addEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
             }
 
             // Fecha o modal
             function closeModal(modalId) {
                 var modal = document.getElementById(modalId);
                 modal.style.display = "none";
+                window.removeEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
             }
         </script>
 
+        <!-- Modal p exibir os pedidos do cliente -->
+        <div id="modalPedidos" class="modal-pedidos">
+            <div class="modal-content-pedidos">
+                <span class="close" onclick="closePedidosModal()">&times;</span>
+                <h2 id="modalTitulo"></h2>
+                <div id="pedidosCliente"></div>
+            </div>
+        </div>
+
+        <script>
+            // Função para abrir o modal de pedidos
+            function openPedidosModal(clienteNome) {
+                var modal = document.getElementById('modalPedidos');
+                modal.style.display = "block";
+                document.getElementById('modalTitulo').innerText = "Pedidos de " + clienteNome;
+
+                // Faz a AJAX para obter os pedidos do cliente
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById('pedidosCliente').innerHTML = this.responseText;
+                    }
+                };
+                xhr.open("GET", "../php/get_pedidos_cliente.php?clienteNome=" + clienteNome, true);
+                xhr.send();
+
+                // Adicione um event listener para fechar o modal ao clicar fora dele
+                window.addEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+
+            // Função para fechar o modal de pedidos
+            function closePedidosModal() {
+                var modal = document.getElementById('modalPedidos');
+                modal.style.display = "none";
+                // Remova o event listener para fechar o modal ao clicar fora dele
+                window.removeEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+
+        </script>
+
     <?php else:
-        header("Location: ../login.php"); endif; ?>
+        header("Location: ../login.php");
+    endif; ?>
 
 </body>
 

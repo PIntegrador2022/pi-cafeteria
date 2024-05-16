@@ -31,8 +31,7 @@
             <a href="#sobre">Sobre</a>
             <a href="#menu">Menu</a>
             <a href="#mapa">Visite</a>
-            <a href="#blogs">Blogs</a>
-            <a href="admin/admin.php" style="font-weight: bold; color: rgb(255, 240, 128);">ADMIN DASHBOARD</a>
+            <a href="admin/admin.php" style="font-weight: bold; color: rgb(255, 240, 128);">ADMINISTRAÇÃO</a>
         </nav>
 
         <div class="icons">
@@ -50,7 +49,7 @@
         <div class="content">
             <h3>Marchiatto Café</h3>
             <h2>A cada xícara, uma ideia.</h2>
-            <p>Bem-vindo!</p>
+            <p>Bem-vindo! 🤍☕</p>
             <a href="#sobre" class="btn">Saiba mais</a>
         </div>
 
@@ -154,7 +153,7 @@
 
     <section class="contato" id="mapa">
 
-        <h1 class="heading"> <span>faça uma</span> visita</h1>
+        <h1 class="heading"><span>gostou? </span> faça uma <span>visita!</span></h1>
 
         <div class="row">
 
@@ -171,7 +170,7 @@
         
         inicio da sessão blogs,
         o ideal seria incorporar o feed do Instagram do café,
-        mas não tenho certeza de como fazer isso por enquanto.  -->
+        mas não tenho certeza de como fazer isso.  -->
         
 
     <!-- <section class="blogs" id="blogs">
@@ -227,7 +226,14 @@
     <section class="footer">
 
         <div class="share">
+            <p class="credit">Siga-nos!</p>
             <a href="https://www.instagram.com/marchiatto_cafe/" target="_blank" class="fab fa-instagram"></a>
+        </div>
+
+        <div class="credit">
+            <h3>Horário de atendimento</h3>
+            <p>18:00h até 22:00h</p>
+            <p>(Consulte a agenda no Instagram!)</p>
         </div>
 
         <div class="links">
@@ -235,7 +241,6 @@
             <a href="#sobre">sobre</a>
             <a href="#menu">menu</a>
             <a href="#mapa">visite</a>
-            <a href="#blogs">blogs</a>
         </div>
 
         <div class="credit">desenvolvido por <span>alunos da Univesp</span> | como Projeto Integrador de Computação</div>

@@ -25,9 +25,6 @@
         <div class="login-box">
             <h2>Login</h2>
 
-            <!--O ADMIN PADRÃO DEFINIDO MANUALMENTE 
-            NO PHPMYADMIN É USUÁRIO: adminteste SENHA: 123-->
-
             <form action="php/logar.php" method="POST">
                 <div class="input-group">
                     <label for="username">Usuário:</label>

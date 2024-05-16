@@ -35,8 +35,8 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
 
       </script>
 
-      <div class="formulario"> <!-- botão p/ fazer novo pedido -->
-        <h1 style="text-align: center;">Fazer novo pedido</h1>
+      <div id='novo-pedido' class="formulario"> <!-- botão p/ fazer novo pedido -->
+        <h1 style="text-align: center;">Fazer um novo pedido</h1>
         <button id="btnNovoPedido" class="campo" style="display: block; margin: 20px auto;">Novo Pedido</button>
         
         <?php if (isset($_GET['sucesso_pedido']) && $_GET['sucesso_pedido'] == 1): ?>
@@ -46,7 +46,6 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
             <label style='color: rgb(223, 0, 0); display: block; text-align: center;'>Ocorreu um erro durante o
               pedido!</label>
           <?php endif; ?>
-      
       </div>
 
       <!-- Modal para fazer novo pedido, os produtos devem aparecer conforme a categoria selecionada -->
@@ -54,7 +53,7 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
         <div class="modal-content-novopedido">
           <span class="close" onclick="closeNovoPedidoModal()">&times;</span>
           <h2>Fazer novo pedido</h2>
-          <form action="../php/salvar_pedido.php" method="post">
+          <form action="../php/cadastrar_pedido.php" method="post">
             <label for="cliente">Cliente:</label>
             <select id="cliente" name="cliente">
               <?php
@@ -79,16 +78,22 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
             </select><br><br>
             <label for="produto">Produto:</label>
             <select id="produto" name="produto">
-              <!-- Opções de produtos serão preenchidas dinamicamente por JavaScript -->
+              <!-- Opções de produtos serão preenchidas dinamicamente pelo JavaScript -->
             </select><br><br>
             <label for="preco_total">Preço Total:</label>
             <input type="text" id="preco_total" name="preco_total" readonly><br><br>
             <input type="submit" value="Realizar Pedido">
           </form>
         </div>
+        <?php if (isset($_GET['sucesso_produto']) && $_GET['sucesso_produto'] == 1): ?>
+            <label style='color: rgb(32, 230, 104); display: block; text-align: center;'>Produto adicionado com
+              sucesso!</label>
+          <?php elseif (isset($_GET['sucesso_produto']) && $_GET['sucesso_produto'] == 0): ?>
+            <label style='color: rgb(223, 0, 0); display: block; text-align: center;'>Ocorreu um erro.</label>
+          <?php endif; ?>
       </div>
 
-      <div class="formulario">
+      <div id='novo-cliente' class="formulario">
         <h1 style="text-align: center;">Cadastrar Cliente</h1>
         <form action="../php/cadastrar_cliente.php" method="post">
 
@@ -114,6 +119,71 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
 
         </form>
       </div>
+
+      <div id='novo-produto' class="formulario">
+      <h1 style="text-align: center;">Cadastrar Produto</h1>
+      <form action="../php/cadastrar_produto.php" method="post">
+
+        <div class="campo">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="" disabled selected>Selecione a categoria</option>
+                <?php
+                // Consulta SQL para obter as categorias de produtos
+                $sql_categorias = "SELECT id, nome FROM categoria";
+                $stmt_categorias = $pdo->query($sql_categorias);
+                while ($categoria = $stmt_categorias->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $categoria['id'] . "'>" . $categoria['nome'] . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" maxlength="100" required>
+        </div>
+
+        <div class="campo">
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="1" cols="20" maxlength="150" style="resize: vertical;" required></textarea>
+        </div>
+
+        <div class="campo">
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" min="0.01" step="0.01" required>
+        </div>
+
+        <!-- TEXTO DE SUCESSO/ERRO NO CADASTRO p/ APARECER NA BOX DE CADASTRO-->
+        <input class="campo" style="display: block; margin: 20px auto;" type="submit" value="Cadastrar Produto">
+        <?php if (isset($_GET['sucesso_produto']) && $_GET['sucesso_produto'] == 1): ?>
+            <label style='color: rgb(32, 230, 104); display: block; text-align: center;'>Produto cadastrado com sucesso!</label>
+        <?php elseif (isset($_GET['sucesso_produto']) && $_GET['sucesso_produto'] == 0): ?>
+            <label style='color: rgb(223, 0, 0); display: block; text-align: center;'>Ocorreu um erro durante o cadastro do produto!</label>
+        <?php endif; ?>
+
+    </form>
+</div>
+
+<div id="novo-admin" class="formulario">
+    <h1 style="text-align: center;">Adicionar Administrador</h1>
+    <form action="../php/adicionar_admin.php" method="post">
+        <div class="campo">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="campo">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <input class="campo" style="display: block; margin: 20px auto;" type="submit" value="Adicionar Admin">
+        <?php if (isset($_GET['sucesso_admin']) && $_GET['sucesso_admin'] == 1): ?>
+            <label style='color: rgb(32, 230, 104); display: block; text-align: center;'>Administrador adicionado!</label>
+        <?php elseif (isset($_GET['sucesso_admin']) && $_GET['sucesso_admin'] == 0): ?>
+            <label style='color: rgb(223, 0, 0); display: block; text-align: center;'>Ocorreu um erro!</label>
+        <?php endif; ?>
+    </form>
+</div>
 
       <script>
         // Abre o modal de novo pedido
@@ -161,7 +231,6 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
           fetch('get_categorias.php')
             .then(response => response.json())
             .then(data => {
-              console.log("Categorias recebidas:", data); // Mensagem de depuração
 
               // Adiciona as opções de categoria
               data.forEach(categoria => {
@@ -207,7 +276,7 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
         });
 
 
-        // Calcula o preço total do produto e preenche o campo correspondente
+        // Calcula o preço total do produto e preenche o campo
         document.getElementById('produto').addEventListener('change', function () {
           var produtoId = this.value;
           fetch('../php/get_preco.php?produto_id=' + produtoId)
@@ -221,14 +290,6 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): ?>
         });
 
       </script>
-
-
-      <div class="formulario">
-        <h1 style="text-align: center;">Demais ações em outras caixas</h1>
-        <form action="#" method="post">
-          <input class="campo" style="display: block; margin: 20px auto;" type="submit" value="EM CONSTRUÇÃO">
-        </form>
-      </div>
 
     </div>
   </body>
